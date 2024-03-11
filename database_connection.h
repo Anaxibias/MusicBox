@@ -4,9 +4,9 @@
 #include "sql_instructions.h"
 #include "callback_functions.h"
 
-class DatabaseConnection {
+class Database {
 public:
-	DatabaseConnection(const char* db_name, int is_new);
+	Database(const char* db_name, int is_new);
 	sqlite3* get();
 
 private:

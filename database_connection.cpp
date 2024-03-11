@@ -1,6 +1,6 @@
 #include "database_connection.h"
 
-DatabaseConnection::DatabaseConnection(const char* db_name, int is_new) {
+Database::Database(const char* db_name, int is_new) {
 	result_code = sqlite3_open(db_name, &db);
 
 	if (result_code)
@@ -10,11 +10,11 @@ DatabaseConnection::DatabaseConnection(const char* db_name, int is_new) {
 		create_tables();
 }
 
-sqlite3* DatabaseConnection::get() {
+sqlite3* Database::get() {
 	return(db);
 }
 
-void DatabaseConnection::create_tables() {
+void Database::create_tables() {
 	for(int i = 0; i < sql_instructions::create_init_tables.size(); ++i){
 		result_code = sqlite3_exec(db, sql_instructions::create_init_tables.at(i), null_callback, NULL, NULL);
 		++i;

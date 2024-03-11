@@ -1,9 +1,9 @@
-#include "executer.h"
+#include "db_manager.h"
 
 int main() {
 	
-	Executor executor;
-	executor.run();
+	DbManager manager;
+	manager.run();
 
 	return 0;
 }
